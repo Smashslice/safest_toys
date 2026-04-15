@@ -21,6 +21,9 @@ struct DashboardView: View {
                     Text(selectedToy.message)
                         .font(.headling)
                         .foregroundColor(.gray)
+                    Text(selectedToy.memorium)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                     
                     NavigationLink("Pick your favorite possibly lethal toy!") {
                         ToyPickerView(Toy: $selectedToy)
