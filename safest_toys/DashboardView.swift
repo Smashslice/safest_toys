@@ -8,17 +8,41 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @State private var selectedToy: Toy = .lawnDart
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        TabView{
+            NavigationStack {
+                VStack(spacing:24){
+                    Text("Awesome Toy")
+                        .font(.title2)
+                    Image(systemName: selectedToy.symbol)
+                        .font(.system(size:80))
+                    Text(selectedToy.message)
+                        .font(.headling)
+                        .foregroundColor(.gray)
+                    
+                    NavigationLink("Pick your favorite possibly lethal toy!") {
+                        ToyPickerView(Toy: $selectedToy)
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
+                .navigationTitle("100% Totally Safe Toys")
+            }
+            .tabItem{
+                Label("About Toys", systemImage: "house")
+            }
+            AboutView()
+                .tabItem{
+                    Label("About", systemImage: "info.circle")
+                }
+            
         }
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    DashboardView()
 }
