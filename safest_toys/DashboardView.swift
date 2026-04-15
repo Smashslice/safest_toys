@@ -19,11 +19,11 @@ struct DashboardView: View {
                     Image(systemName: selectedToy.symbol)
                         .font(.system(size:80))
                     Text(selectedToy.message)
-                        .font(.headling)
+                        .font(.headline)
                         .foregroundColor(.gray)
                     
                     NavigationLink("Pick your favorite possibly lethal toy!") {
-                        ToyPickerView(Toy: $selectedToy)
+                        ToyPickerView(toy: $selectedToy)
                     }
                     .buttonStyle(.borderedProminent)
                 }

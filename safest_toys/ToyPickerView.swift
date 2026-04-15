@@ -32,6 +32,6 @@ struct ToyPickerView: View {
 
 #Preview {
     NavigationStack {
-        ToyPickerView(mood: .constant(.lawnDarts))
+        ToyPickerView(toy: .constant(.lawnDart))
     }
 }
